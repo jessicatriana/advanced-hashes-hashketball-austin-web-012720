@@ -131,6 +131,7 @@ def num_points_scored(players_name)
 end
 
 def shoe_size(players_name)
+  #returns shoe size for a certain player
    game_hash.each do |place, team|
     team.each do |attribute, data|
       if attribute == :players
@@ -145,6 +146,7 @@ def shoe_size(players_name)
 end
 
 def team_colors(team_name)
+  #returns an array of team colors for a certain team
   game_hash.each do |place, team| 
     if team[:team_name] == team_name
       return team[:colors]
@@ -153,12 +155,14 @@ def team_colors(team_name)
 end
 
 def team_names
+  #returns the team names
   game_hash.map do |place, team|
     team[:team_name]
   end
 end
 
 def player_numbers(team_name) 
+  #returns a list of jersery numbers for a team
   nums = []
   game_hash.each do |place, team|
     if team[:team_name] == team_name 
@@ -175,6 +179,7 @@ def player_numbers(team_name)
 end
 
 def player_stats(players_name) 
+  #returns a hash of a player's stats
   stats = {} 
   game_hash.each do |place, team| 
     team.each do |attributes, data| 
@@ -193,6 +198,7 @@ def player_stats(players_name)
 end
 
 def big_shoe_rebounds
+  #returns the number of rebounds for the player with the largest shoe
   big_shoe = 0
   rebounds = 0
   game_hash.each do |place, team|
@@ -207,11 +213,8 @@ def big_shoe_rebounds
 end
 
 def most_points_scored
- #return player with most points
+ #returns a player with most points
  
- 
- best_player = ""
- most_points = 0
  game_hash.each do |place, team|
   team[:players].each do |player|
     if player[:points] > most_points 
