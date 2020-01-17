@@ -246,3 +246,18 @@ def most_points_scored
   player_with_most_of(:points)
 end
 
+def winning_team
+  # Set up a hash to keep track of the points scored by each team. This way, we
+  # can iterate through each player, get their points scored, and increase the
+  # count in the hash.
+
+  scores = { 'Brooklyn Nets' => 0, 'Charlotte Hornets' => 0 }
+
+  game_hash.each do |place, team|
+    team[:players].each do |player|
+      scores[game_data[:team_name]] += iterate_through_players_for(player[:player_name], :points)
+    end
+  end
+
+  scores.max_by { |_k, v| v }.first
+end
