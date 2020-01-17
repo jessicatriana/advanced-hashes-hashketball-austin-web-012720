@@ -212,16 +212,12 @@ def big_shoe_rebounds
   return rebounds
 end
 
-def most_points_scored
- #returns a player with most points
- 
- game_hash.each do |place, team|
-  team[:players].each do |player|
-    if player[:points] > most_points 
-      
-      most_points = player[:points]
+#Bonus
 
+def iterate_through_players_for(name, stat)
+  game_hash.each do |place, team|
+    game_data[:players].each do |player|
+      return player[statistic] if player[:player_name] == name
     end
   end
- end
 end
