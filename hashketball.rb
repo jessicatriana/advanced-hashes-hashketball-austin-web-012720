@@ -216,8 +216,9 @@ end
 
 def iterate_through_players_for(name, stat)
   game_hash.each do |place, team|
-    game_data[:players].each do |player|
-      return player[statistic] if player[:player_name] == name
+    team[:players].each do |player|
+      return player[stat] if player[:player_name] == name
     end
   end
 end
+
