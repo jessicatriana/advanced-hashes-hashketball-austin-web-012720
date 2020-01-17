@@ -209,7 +209,7 @@ end
 def most_points_scored
 #return player with most points
 game_hash.each do |place, team|
-  team.each do |attribute, data|
+  team[:players].each do |player|
   binding.pry
 end
 end
