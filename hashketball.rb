@@ -255,7 +255,7 @@ def winning_team
 
   game_hash.each do |place, team|
     team[:players].each do |player|
-      scores[game_data[:team_name]] += iterate_through_players_for(player[:player_name], :points)
+      scores[team[:team_name]] += iterate_through_players_for(player[:player_name], :points)
     end
   end
 
