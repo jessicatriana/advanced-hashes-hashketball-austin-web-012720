@@ -222,3 +222,20 @@ def iterate_through_players_for(name, stat)
   end
 end
 
+def player_with_most_of(stat)
+  player_name = nil
+  amount_of_stat = 0
+
+  game_hash.each do |place, team|
+    team[:players].each do |player|
+      if player[stat].is_a? String
+        if player[stat].length > amount_of_stat
+          amount_of_stat = player[stat].length
+          player_name = player[:player_name]
+        end
+      elsif player[stat] > amount_of_stat
+        amount_of_stat = player[stat]
+        player_name = player[:player_name]
+      end
+    end
+  end
